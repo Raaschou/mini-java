@@ -124,4 +124,9 @@ public class ProgramTypeVisitor extends ProgramVisitor {
         }
     }
 
+    @Override
+    public void visit(Literal literal, OperatorExpression operatorExpression){
+
+    }
+
 }
