@@ -4,20 +4,21 @@ import dk.dtu.compute.course02324.mini_java.semantics.ProgramVisitor;
 
 public class PrintStatement implements SimpleStatement {
 
-    String literal;
-    Expression expression;
+    Statement statement;
 
-    public PrintStatement(String literal, Expression expression) {
-        this.literal = literal;
-        this.expression = expression;
+    public PrintStatement(Statement statement) {
+        this.statement = statement;
     }
 
-    public String getLiteral() {
+ /*   public String getLiteral() {
         return literal;
     }
 
     public Expression getExpression() {
         return expression;
+    }*/
+    public void println(Statement statement) {
+        System.out.println("test" + statement.toString());
     }
 
     @Override

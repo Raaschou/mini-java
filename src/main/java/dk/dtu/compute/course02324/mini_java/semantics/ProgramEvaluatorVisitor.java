@@ -147,6 +147,9 @@ public class ProgramEvaluatorVisitor extends ProgramVisitor {
         Number result = function.apply(args);
         values.put(operatorExpression, result);
     }
-
+    @Override
+    public void visit(PrintStatement printStatement) {
+        //empty
+    }
 
 }

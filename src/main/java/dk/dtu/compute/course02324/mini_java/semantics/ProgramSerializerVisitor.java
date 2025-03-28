@@ -85,7 +85,10 @@ public class ProgramSerializerVisitor extends ProgramVisitor  {
         }
         expessionRepresentations.put(operatorExpression, result);
     }
+    @Override
+    public void visit(PrintStatement printStatement) {
 
+    }
     private String operandToString(Operator operator, Expression expression, int number) {
         String result = expessionRepresentations.get(expression);
         if (expression instanceof OperatorExpression) {

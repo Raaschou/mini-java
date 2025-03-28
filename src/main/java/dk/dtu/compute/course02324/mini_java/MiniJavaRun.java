@@ -68,7 +68,9 @@ public class MiniJavaRun {
                         )
                 )
         );
-
+        PrintStatement ps = new PrintStatement(statement);
+        ps.accept(statement);
+        ps.println(statement);
         printTypeEvaluate(statement);
 
         System.out.println("Result provided by Java");
