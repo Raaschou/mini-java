@@ -2,6 +2,8 @@ package dk.dtu.compute.course02324.mini_java.semantics;
 
 import dk.dtu.compute.course02324.mini_java.model.*;
 
+import java.util.function.Function;
+
 public abstract class ProgramVisitor {
 
     abstract public void visit(Sequence sequence);
@@ -16,4 +18,5 @@ public abstract class ProgramVisitor {
 
     abstract public void visit(OperatorExpression operatorExpression);
 
+    abstract public void visit(PrintStatement printStatement);
 }

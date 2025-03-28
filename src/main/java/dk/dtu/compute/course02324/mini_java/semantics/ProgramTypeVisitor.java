@@ -125,8 +125,10 @@ public class ProgramTypeVisitor extends ProgramVisitor {
     }
 
     @Override
-    public void visit(Literal literal, OperatorExpression operatorExpression){
-
+    public void visit(PrintStatement printStatement) {
+        String literal = printStatement.getLiteral();
+        Expression expression = printStatement.getExpression();
+        System.out.println(literal + expression.toString());
     }
 
 }
