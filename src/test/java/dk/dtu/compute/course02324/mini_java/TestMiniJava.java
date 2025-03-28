@@ -76,7 +76,7 @@ public class TestMiniJava{
 
         tvc.visit(statement);
         if (!ptv.problems.isEmpty()) {
-            fail("The type visitor did detect typing problmes, which should not be there!");
+            fail("The type visitor did detect typing problems, which should not be there!");
         }
 
         evc.visit(statement);
@@ -124,7 +124,7 @@ public class TestMiniJava{
 
         tvc.visit(statement);
         if (!ptv.problems.isEmpty()) {
-            fail("The type visitor did detect typing problmes, which should not be there!");
+            fail("The type visitor did detect typing problems, which should not be there!");
         }
         evc.visit(statement);
 
