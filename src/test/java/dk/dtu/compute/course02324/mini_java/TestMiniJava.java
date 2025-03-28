@@ -19,6 +19,10 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+/*
+Så laver jeg noget her.
+*/
+
 
 
 
@@ -43,9 +47,7 @@ public class TestMiniJava{
 
     private ProgramEvaluatorVisitor pev;
     private VisitCoordinator evc;
-private int ole (){
-    return 3;
-}
+
 
 
     /**
