@@ -19,6 +19,10 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+/*
+Så laver jeg noget her.
+*/
+
 /**
  * These are some basic tests of the MiniJava for computing the types and
  * evaluating expressions.
@@ -35,7 +39,7 @@ public class TestMiniJava{
     private ProgramEvaluatorVisitor pev;
     private VisitCoordinator evc;
 
-
+    private int muskelmandend_er_stor = 0;
 
     /**
      *  Sets
