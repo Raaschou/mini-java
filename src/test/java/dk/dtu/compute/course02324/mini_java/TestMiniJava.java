@@ -19,19 +19,6 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-/*
-Så laver jeg noget her.
-*/
-
-
-
-
-//        System.out.println("fsdd" +
-//                "gfsd" +
-//                "" +
-//                "" +
-//                "fdasfs" +
-//                "sdf")
 /**
  * These are some basic tests of the MiniJava for computing the types and
  * evaluating expressions.
