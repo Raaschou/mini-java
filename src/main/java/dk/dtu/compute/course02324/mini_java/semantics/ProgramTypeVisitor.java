@@ -16,9 +16,14 @@ public class ProgramTypeVisitor extends ProgramVisitor {
      * types of all operands and the result of te operation are the same.
      */
     final private Map<Operator,List<Type>> operatorTypes = Map.ofEntries(
+            entry(PLUS1, List.of(INT,FLOAT)),
+            entry(MINUS1, List.of(INT,FLOAT)),
             entry(PLUS2, List.of(INT, FLOAT)),
             entry(MINUS2, List.of(INT, FLOAT)),
-            entry(MULT, List.of(INT, FLOAT)));
+            entry(MULT, List.of(INT, FLOAT)),
+            entry(DIV, List.of(INT,FLOAT)),
+            //Float? Same for MINUS2 and MULT
+            entry(MOD, List.of(INT)));
 
     final public Map<Expression, Type> typeMapping = new HashMap<>();
 
