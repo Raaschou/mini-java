@@ -68,8 +68,11 @@ public class MiniJavaRun {
                         )
                 )
         );
-        PrintStatement ps = new PrintStatement(statement);
-        ps.accept(statement);
+
+        PrintStatement ps = new PrintStatement();
+        Sequence seq = (Sequence) statement;
+        seq.statements.stream().forEach(ps::println);
+
         ps.println(statement);
         printTypeEvaluate(statement);
 

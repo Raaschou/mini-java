@@ -4,12 +4,12 @@ import dk.dtu.compute.course02324.mini_java.semantics.ProgramVisitor;
 
 public class PrintStatement implements SimpleStatement {
 
-    Statement statement;
+   /* Statement statement;
 
     public PrintStatement(Statement statement) {
         this.statement = statement;
     }
-
+*/
  /*   public String getLiteral() {
         return literal;
     }
@@ -18,7 +18,7 @@ public class PrintStatement implements SimpleStatement {
         return expression;
     }*/
     public void println(Statement statement) {
-        System.out.println("test" + statement.toString());
+        System.out.println("test: " + statement.toString());
     }
 
     @Override
