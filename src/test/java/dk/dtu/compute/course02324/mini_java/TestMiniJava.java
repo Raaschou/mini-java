@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * These are some basic tests of the MiniJava for computing the types and
  * evaluating expressions.
  */
-public class TestMiniJava{
+public class TestMiniJava {
 
 
     // private ProgramSerializerVisitor psv;
@@ -36,9 +36,8 @@ public class TestMiniJava{
     private VisitCoordinator evc;
 
 
-
     /**
-     *  Sets
+     * Sets
      */
     @BeforeEach
     public void setUp() {
@@ -55,7 +54,7 @@ public class TestMiniJava{
     @Test
     public void testCorrectProgramWithInts() {
         int i;
-        int j = i = 2 + (i = 3) ;
+        int j = i = (((((2 + (i = -3)) * -9) / 3) % 2) - 3);
 
         Statement statement = new Sequence(
                 new Declaration(INT, new Var("i")),
@@ -65,19 +64,35 @@ public class TestMiniJava{
                         new Assignment(
                                 new Var("i"),
                                 new OperatorExpression(
-                                        PLUS2,
-                                        new OperatorExpression(     // added a plus1 in front of the 2.
-                                                PLUS1,
+                                        MINUS2,
+                                        new OperatorExpression(
+                                                MOD,
+                                                new OperatorExpression(
+                                                        DIV,
+                                                        new OperatorExpression(
+                                                                MULT,
+                                                                new OperatorExpression(
+                                                                        PLUS2,
+                                                                        new Assignment(
+                                                                                new Var("i"),
+                                                                                new OperatorExpression(
+                                                                                        MINUS1,
+                                                                                        new IntLiteral(3)
+                                                                                )
+                                                                        ),
+                                                                        new IntLiteral(2)
+                                                                ),
+                                                                new IntLiteral(-9)
+                                                        ),
+                                                        new IntLiteral(3)
+                                                ),
                                                 new IntLiteral(2)
                                         ),
-                                        new Assignment(
-                                                new Var("i"),
-                                                new OperatorExpression(
-                                                        MINUS1,
-                                                        new IntLiteral(3)
-                                                )
-                                        )))
+                                        new IntLiteral(3)
+                                )
+                        )
                 )
+
         );
 
         tvc.visit(statement);
@@ -88,7 +103,7 @@ public class TestMiniJava{
         evc.visit(statement);
 
         Set<String> variables = new HashSet<>(List.of("i", "j"));
-        for (Var var: ptv.variables) {
+        for (Var var : ptv.variables) {
             variables.remove(var.name);
 
             if (var.name.equals("i")) {
@@ -106,7 +121,7 @@ public class TestMiniJava{
     public void testCorrectlyTypedProgramWithFloats() {
         System.out.println("Result provided by Java");
         float i;
-        float j = i = +2.75f - ( i = -3.21f );
+        float j = i = ((((+2.75f - (i = -3.21f)) / i) * -1f) + 2) % 3;
 
         Statement statement =
                 new Sequence(
@@ -117,18 +132,34 @@ public class TestMiniJava{
                                 new Assignment(
                                         new Var("i"),
                                         new OperatorExpression(
-                                                MINUS2,
+                                                MOD,
                                                 new OperatorExpression(
-                                                        PLUS1,
-                                                        new FloatLiteral(2.75f)
-                                                ),
-                                                new Assignment(
-                                                        new Var("i"),
+                                                        PLUS2,
                                                         new OperatorExpression(
-                                                                MINUS1,
-                                                                new FloatLiteral(3.21f)
-                                                        )
-                                                )
+                                                                MULT,
+                                                                new OperatorExpression(
+                                                                        DIV,
+                                                                        new OperatorExpression(
+                                                                                MINUS2,
+                                                                                new OperatorExpression(
+                                                                                        PLUS1,
+                                                                                        new FloatLiteral(2.75f)
+                                                                                ),
+                                                                                new Assignment(
+                                                                                        new Var("i"),
+                                                                                        new OperatorExpression(
+                                                                                                MINUS1,
+                                                                                                new FloatLiteral(3.21f)
+                                                                                        )
+                                                                                )
+                                                                        ),
+                                                                        new Var("i")
+                                                                ),
+                                                                new FloatLiteral(-1f)
+                                                        ),
+                                                        new FloatLiteral(2f)
+                                                ),
+                                                new FloatLiteral(3f)
                                         )
                                 )
                         )
@@ -141,7 +172,7 @@ public class TestMiniJava{
         evc.visit(statement);
 
         Set<String> variables = new HashSet<>(List.of("i", "j"));
-        for (Var var: ptv.variables) {
+        for (Var var : ptv.variables) {
             variables.remove(var.name);
 
             if (var.name.equals("i")) {
@@ -159,7 +190,7 @@ public class TestMiniJava{
     @Test
     public void testWronglyTypedProgram() {
         int i;
-        int j = i = 2 + (i = 3) ;
+        int j = i = 2 + (i = 3);
 
         Statement statement =
                 new Sequence(
@@ -190,7 +221,6 @@ public class TestMiniJava{
             fail("No type problems detected in a mistyped statement!");
         }
     }
-
 
 
 }
