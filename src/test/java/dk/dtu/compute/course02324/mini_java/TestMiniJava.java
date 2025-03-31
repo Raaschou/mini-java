@@ -55,7 +55,7 @@ public class TestMiniJava{
     @Test
     public void testCorrectProgramWithInts() {
         int i;
-        int j = i = +2 + (i = -3) ;
+        int j = i = 2 + (i = 3) ;
 
         Statement statement = new Sequence(
                 new Declaration(INT, new Var("i")),
