@@ -34,20 +34,20 @@ public class ProgramEvaluatorVisitor extends ProgramVisitor {
                 return -arg1; };
     private Function<List<Number>,Number> plus2int =
             args -> { int arg1 = args.get(0).intValue();
-                      int arg2 = args.get(1).intValue();
-                      return arg1 + arg2; };
+                int arg2 = args.get(1).intValue();
+                return arg1 + arg2; };
     private Function<List<Number>,Number> plus2float =
             args -> { float arg1 = args.get(0).floatValue();
-                      float arg2 = args.get(1).floatValue();
-                      return arg1 + arg2; };
+                float arg2 = args.get(1).floatValue();
+                return arg1 + arg2; };
     private Function<List<Number>,Number> minus2int =
             args ->{int arg1 = args.get(0).intValue();
                 int arg2 = args.get(1).intValue();
                 return arg1 - arg2; };
     private Function<List<Number>,Number> minus2float =
             args -> { float arg1 = args.get(0).floatValue();
-                      float arg2 = args.get(1).floatValue();
-                      return arg1 - arg2; };
+                float arg2 = args.get(1).floatValue();
+                return arg1 - arg2; };
 
     private Function<List<Number>,Number> multfloat =
             args -> { float arg1 = args.get(0).floatValue();
@@ -80,6 +80,11 @@ public class ProgramEvaluatorVisitor extends ProgramVisitor {
             ),
             entry(MULT, Map.ofEntries(
                     entry(FLOAT, multfloat ) )
+            ),
+            entry(PLUS1, Map.ofEntries(
+                    entry(INT, plus1int),
+                    entry(FLOAT, plus1float ) )
+
             ));
 
     public ProgramEvaluatorVisitor(ProgramTypeVisitor pv) {
