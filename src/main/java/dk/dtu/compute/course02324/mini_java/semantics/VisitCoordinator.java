@@ -17,7 +17,9 @@ public class VisitCoordinator {
             visit((Declaration) statement);
         } else if (statement instanceof Assignment) {
             visit((Assignment)  statement);
-        } else {
+        } else if (statement instanceof PrintStatement) {
+            visit((PrintStatement)  statement);
+        }else {
             assert false;
         }
     }
