@@ -84,7 +84,10 @@ public class ProgramEvaluatorVisitor extends ProgramVisitor {
             entry(PLUS1, Map.ofEntries(
                     entry(INT, plus1int),
                     entry(FLOAT, plus1float ) )
-
+            ),
+            entry(MINUS1, Map.ofEntries(
+                    entry(INT, minus1int),
+                    entry(FLOAT, minus1float ) )
             ));
 
     public ProgramEvaluatorVisitor(ProgramTypeVisitor pv) {

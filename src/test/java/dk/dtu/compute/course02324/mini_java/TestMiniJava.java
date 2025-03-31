@@ -55,7 +55,7 @@ public class TestMiniJava{
     @Test
     public void testCorrectProgramWithInts() {
         int i;
-        int j = i = +2 + (i = 3) ;
+        int j = i = +2 + (i = -3) ;
 
         Statement statement = new Sequence(
                 new Declaration(INT, new Var("i")),
@@ -72,7 +72,10 @@ public class TestMiniJava{
                                         ),
                                         new Assignment(
                                                 new Var("i"),
-                                                new IntLiteral(3)
+                                                new OperatorExpression(
+                                                        MINUS1,
+                                                        new IntLiteral(3)
+                                                )
                                         )))
                 )
         );
@@ -103,7 +106,7 @@ public class TestMiniJava{
     public void testCorrectlyTypedProgramWithFloats() {
         System.out.println("Result provided by Java");
         float i;
-        float j = i = +2.75f - ( i = 3.21f );
+        float j = i = +2.75f - ( i = -3.21f );
 
         Statement statement =
                 new Sequence(
@@ -121,7 +124,10 @@ public class TestMiniJava{
                                                 ),
                                                 new Assignment(
                                                         new Var("i"),
-                                                        new FloatLiteral(3.21f)
+                                                        new OperatorExpression(
+                                                                MINUS1,
+                                                                new FloatLiteral(3.21f)
+                                                        )
                                                 )
                                         )
                                 )
