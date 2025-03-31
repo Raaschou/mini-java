@@ -183,7 +183,7 @@ public class ProgramEvaluatorVisitor extends ProgramVisitor {
     }
 
     @Override
-    public void visit(PrintStatement println) {
-        System.out.println(println.stringLit + values.get(println.expression));
+    public void visit(PrintStatement printStatement) {
+        System.out.println(printStatement.string + values.get(printStatement.expression));
     }
 }
