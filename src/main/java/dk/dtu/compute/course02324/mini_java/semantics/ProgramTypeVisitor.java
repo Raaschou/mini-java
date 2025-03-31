@@ -124,4 +124,9 @@ public class ProgramTypeVisitor extends ProgramVisitor {
         }
     }
 
+    @Override
+    public void visit(PrintStatement printStatement) {
+        // nothing, since print statements return void
+    }
+
 }
